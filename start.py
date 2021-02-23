@@ -150,13 +150,11 @@ def print_chart(list_of_contracts_calls, list_of_contracts_puts, current_asset_v
 
         # adding second x-axis for percentage change
         ax2 = ax1.twiny()
-        ax2.plot(percentage_changes, [1 for x in range(0, len(percentage_changes))])
-        ax2.cla()
+        ax2.plot(percentage_changes, [0 for x in range(0, len(percentage_changes))], alpha=0.0)
         ax2.xaxis.set_ticks_position("bottom")
         ax2.xaxis.set_label_position("bottom")
         ax2.spines["bottom"].set_position(("axes", -0.15))
         ax2.set_xlabel("Percentage Change [%]")
-
         plt.show()
 
     plot_chart(x_axis, y_axis_calls, y_axis_puts, percentage_changes)
@@ -190,6 +188,6 @@ def download_data_and_print_chart(ticker, date, normalize, normalize_together=Fa
 
 
 if __name__ == "__main__":
-    ticker = "NET"
-    date = "2020-07-17"
+    ticker = "MSFT"
+    date = "2021-02-26"
     download_data_and_print_chart(ticker, date, normalize=False, normalize_together=True)
